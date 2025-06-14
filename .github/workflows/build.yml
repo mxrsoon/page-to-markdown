@@ -30,12 +30,16 @@ jobs:
       - name: Build
         run: npm run build
 
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r page-to-markdown-unsigned.zip .
+
       - name: Read manifest
         run: echo "MANIFEST_JSON=$(jq -c . < manifest.json)" >> $GITHUB_ENV
       
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: .
+          artifacts: page-to-markdown-unsigned.zip
           omitBody: true
           tag: '${{ fromJson(env.MANIFEST_JSON).version }}'
