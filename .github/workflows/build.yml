@@ -30,13 +30,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Get package version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
+      - name: Read manifest
+        run: echo "MANIFEST_JSON=$(jq -c . < manifest.json)" >> $GITHUB_ENV
       
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
           artifacts: .
           omitBody: true
-          tag: ${{ steps.package-version.outputs.current-version}}
+          tag: '${{ fromJson(env.MANIFEST_JSON).version }}'
