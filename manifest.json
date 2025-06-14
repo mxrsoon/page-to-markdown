@@ -1,0 +1,35 @@
+{
+  "name": "Page to Markdown",
+  "version": "0.1",
+  "manifest_version": 3,
+  "description": "Converts page contents to Markdown syntax.",
+  "background": {
+    "service_worker": "dist/background.bundle.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "clipboardWrite",
+    "scripting",
+    "activeTab",
+    "notifications",
+    "contextMenus",
+    "sidePanel"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "default_title": "Convert to Markdown"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/settings.html"
+  },
+  "options_ui": {
+    "page": "sidepanel/settings.html",
+    "open_in_tab": false
+  }
+}

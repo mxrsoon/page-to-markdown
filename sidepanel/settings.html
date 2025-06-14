@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Key Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./material-theme.css">
+    <script type="module" src="../dist/sidepanel/settings.bundle.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            background: var(--md-sys-color-background, #fff);
+            color: var(--md-sys-color-on-background, #222);
+            color-scheme: light dark;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            min-width: 320px;
+            max-width: 400px;
+            width: 100%;
+            margin: 32px;
+            padding: 0;
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
+        }
+
+        .container header {
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        md-outlined-text {
+            display: block;
+        }
+
+        md-outlined-text-field {
+            width: 100%;
+        }
+
+        md-filled-button {
+            width: 100%;
+            margin: 24px 0;
+        }
+
+        .section-heading {
+            margin: 8px 0;
+        }
+
+        #status {
+            display: block;
+            min-height: 24px;
+            color: var(--md-sys-color-primary, #2186eb);
+        }
+
+        #status[hidden] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body md-theme>
+    <div class="container">
+        <header>
+            <md-outlined-text class="md-typescale-title-large">Settings</md-outlined-text>
+        </header>
+        <md-outlined-text class="section-heading md-typescale-title-medium">Gemini</md-outlined-text>
+        <md-outlined-text-field id="api-key" label="API key"></md-outlined-text-field>
+        <md-filled-button id="save-key">Save</md-filled-button>
+        <md-outlined-text id="status" class="md-typescale-body-medium" hidden>Saved!</md-outlined-text>
+    </div>
+</body>
+
+</html>
